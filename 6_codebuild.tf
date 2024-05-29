@@ -36,6 +36,7 @@ resource "aws_codebuild_project" "angular_build" {
 
   source {
     type      = "CODEPIPELINE"
-    buildspec = file("buildspec/framework-buildspec.yml")
+    buildspec = file("aws-codepipeline_front-module/buildspec/framework-buildspec.yml")
   }
+  
 }
