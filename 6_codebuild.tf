@@ -36,7 +36,7 @@ resource "aws_codebuild_project" "angular_build" {
 
   source {
     type      = "CODEPIPELINE"
-    location = "https://github.com/jesuselvis/aws-codepipeline_front-module/blob/main/buildspec/framework-buildspec.yml" 
+    location = "buildspec/framework-buildspec.yml" 
   }
   
 }
