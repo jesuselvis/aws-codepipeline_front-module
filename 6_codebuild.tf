@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "angular_build" {
-  name         = "framework-build"
+  name         = var.proyectName
   description  = "Despligue para aplicaciones web"
   service_role = aws_iam_role.assume_codebuild_role.arn
 
