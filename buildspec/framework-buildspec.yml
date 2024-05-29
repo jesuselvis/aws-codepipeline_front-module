@@ -7,14 +7,15 @@ phases:
       # - echo install process started
       # - ls
       # - ls 
-      - npm -f install && npm install -g @angular/cli
-      # - echo $CLOUD_FRONT_ID
-      # - echo $BUCKET_S3
-      # - echo $AMBIENTE_NAME
       - echo $RUTA_LANDING
       # - echo $CONFIG_BUILD
       - echo $BUCKET_NAME
       - echo $ID_CLOUDFRONT
+      - npm -f install && npm install -g @angular/cli
+      # - echo $CLOUD_FRONT_ID
+      # - echo $BUCKET_S3
+      # - echo $AMBIENTE_NAME
+      
   build:
     commands:
       - echo build process started now
@@ -26,6 +27,7 @@ phases:
   post_build:
     commands:
       - echo Levantamos el codigo buildeado al S3
+      - ls
       - cd $RUTA_LANDING
       - aws s3 sync . s3://$BUCKET_NAME/ --delete
       - aws cloudfront create-invalidation --distribution-id=$ID_CLOUDFRONT --paths "/*"
