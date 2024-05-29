@@ -6,7 +6,7 @@ phases:
     commands:
       # - echo install process started
       # - ls
-      # - ls 
+      - ls 
       - echo $RUTA_LANDING
       # - echo $CONFIG_BUILD
       - echo $BUCKET_NAME
@@ -23,11 +23,11 @@ phases:
       # - ng build $CONFIG_BUILD
       - ng build --configuration dev
       #--configuration=production
-      - ls
+
   post_build:
     commands:
-      - echo Levantamos el codigo buildeado al S3
       - ls
+      - echo Levantamos el codigo buildeado al S3
       - cd $RUTA_LANDING
       - aws s3 sync . s3://$BUCKET_NAME/ --delete
       - aws cloudfront create-invalidation --distribution-id=$ID_CLOUDFRONT --paths "/*"
