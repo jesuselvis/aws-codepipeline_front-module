@@ -49,7 +49,7 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
             "${aws_s3_bucket.web_site.arn}/*"
           ],
           Principal = {
-            AWS = "arn:aws:iam::154970314170:role/CLA-CodeBuildBasePolicy-buildproject-us-east-1-proyect"
+            AWS = "arn:aws:iam::885733481041:role/CLA-CodeBuildBasePolicy-buildproject-us-east-1-proyecto"
           }
         },
         {
